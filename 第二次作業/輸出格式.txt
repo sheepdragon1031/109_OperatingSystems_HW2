@@ -1,0 +1,12 @@
+PID:3   Queue1: 5,5
+PID:2   Queue1: 5
+PID:6   Queue2: 10
+PID:4   Queue2: 10,10,10
+PID:5   Queue2: 10,10,5
+PID:1   Queue1: 5,5 Queue2: 10,10,10 Queue3: 10
+PID:8   Queue3: 20,20
+PID:7   Queue3: 20,20,20,10
+PID:9   Queue3: 20,20,20,20 Queue4: 20
+PID:10  Queue4: 25
+PID:12  Queue4: 35
+PID:11  Queue4: 60

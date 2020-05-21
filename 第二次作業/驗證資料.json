@@ -1,0 +1,77 @@
+{
+    "queue": [{
+		"qtype": "PRR",
+		"run_limit": 2,
+		"time_quantum": 5
+		},
+		{
+		"qtype": "RR",
+		"run_limit": 3,
+		"time_quantum": 10
+		},
+		{
+		"qtype": "RR",
+		"run_limit": 4,
+		"time_quantum": 20
+		},
+		{
+		"qtype": "SJF",
+		"run_limit": "-",
+		"time_quantum": "-"
+		}
+	
+	],
+    "process": [[{
+				"priority": 3,
+				"time": 50
+			},
+			{
+				"priority": 3,
+				"time": 5
+			},
+			{
+				"priority": 2,
+				"time": 10
+			}
+		],
+		[{
+				"priority": 3,
+				"time": 30
+			},
+			{
+				"priority": 3,
+				"time": 25
+			},
+			{
+				"priority": 2,
+				"time": 10
+			}
+		],
+		[{
+				"priority": 1,
+				"time": 70
+			},
+			{
+				"priority": 2,
+				"time": 40
+			},
+			{
+				"priority": 1,
+				"time": 100
+			}
+		],
+		[{
+				"priority": 1,
+				"time": 25
+			},
+			{
+				"priority": 2,
+				"time": 60
+			},
+			{
+				"priority": 3,
+				"time": 35
+			}
+		]
+	]
+}
