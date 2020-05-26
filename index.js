@@ -96,7 +96,7 @@ var json = {
             }
         ]
     ]
-}
+} 
 var tmpQueue,tempProcess = {}
 var log = []//顯示用
 var text = ''
@@ -123,8 +123,8 @@ const sortQueue = ()=>{
     tmpQueue.forEach((element, valve) => {
         if( element.qtype == "PRR")//Shortest-Job-First
             tempProcess[valve].sort( (a, b) => {return a.priority - b.priority})
-        else if(element.qtype == "RR")//round-robin
-            tempProcess[valve].sort( (a, b) => {return a.PID - b.PID})
+        // else if(element.qtype == "RR")//round-robin
+        //     tempProcess[valve].sort( (a, b) => {return a.PID - b.PID})
         else if(element.qtype == "SJF")//Priority round robin
             tempProcess[valve].sort( (a, b) => {return a.time - b.time})
     });
@@ -223,10 +223,26 @@ const main = () =>{
             if(elements.deadTime > 0){
                  //放到下一個tmpQueue
                 if(valve < tmpQueue.length){
-                    sortQueue() //先排序?
+                    // if(element.qtype != "SJF"){
+                        sortQueue() //先排序?
+                    // }
+                   
+                    // if( element.qtype == "PRR")//Shortest-Job-First
+                    // tempProcess[valve].sort( (a, b) => {return a.priority - b.priority})
+                    // else if(element.qtype == "RR")//round-robin
+                    //     tempProcess[valve].sort( (a, b) => {return a.PID - b.PID})
+
                     elements.time = elements.deadTime
+                    // console.log(elements)
                     tempProcess[valve+1][tempProcess[valve+1].length] = elements
+                    
+                    if(tmpQueue[valve+1].qtype == "SJF"){
+                        tempProcess[valve].splice(valves, 1)
+                        tempProcess[valve+1].sort( (a, b) => {return a.time - b.time})
+                    }
+                     
                 }
+                
             }
          
         })
